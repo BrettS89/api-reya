@@ -25,6 +25,7 @@ const fn = async (req, res) => {
       app_id: req.body.app_id,
       audio: fileUrl,
       _ids: [_id],
+      subscribed: true,
     };
 
     redis.publish('event', JSON.stringify(event));
