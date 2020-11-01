@@ -19,7 +19,6 @@ const controller = async (req, res) => {
     if (user) {
       const sub = await AppSub.findOne({ app_id: app._id, user_id: user._id });
       if (sub) app.subscribed = true;
-      console.log(sub, app);
     }
     
     handlers.success(res, 200, app);

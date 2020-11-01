@@ -1,5 +1,5 @@
-const handlers = require('../../../../utilities/handlers');
-const redis = require('../../../../connections/cache');
+const handlers = require('@/utilities/handlers');
+const redis = require('@/connections/cache');
 
 const fn = async (req, res) => {
   try {
@@ -9,7 +9,9 @@ const fn = async (req, res) => {
       _ids: req.body._ids
     };
 
-    redis.publish('event', JSON.stringify(event));
+    redis.publish('event', JSON.stringify(event), () => {
+      console.log('hi')
+    });
     
     handlers.success(res, 200, { status: 'success' });
   } catch(e) {
