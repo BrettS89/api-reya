@@ -8,7 +8,7 @@ const fn = async (req, res) => {
       audio: req.body.audio,
       _ids: req.body._ids
     };
-
+    console.log(event);
     redis.publish('event', JSON.stringify(event));
     
     handlers.success(res, 200, { status: 'success' });
