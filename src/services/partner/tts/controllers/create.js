@@ -13,7 +13,7 @@ const controller = async (req, res) => {
       throwError(400, 'bad request data'); 
     }
 
-    const data = await mp3FromString();
+    const data = await mp3FromString(text);
     const fileUrl = await uploadTos3(data.AudioStream);
     handlers.success(res, 201, { fileUrl });
   } catch(e) {

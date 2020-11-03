@@ -9,9 +9,7 @@ const fn = async (req, res) => {
       _ids: req.body._ids
     };
 
-    redis.publish('event', JSON.stringify(event), () => {
-      console.log('hi')
-    });
+    redis.publish('event', JSON.stringify(event));
     
     handlers.success(res, 200, { status: 'success' });
   } catch(e) {
