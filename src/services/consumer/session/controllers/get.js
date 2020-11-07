@@ -1,6 +1,6 @@
 const handlers = require('@/utilities/handlers');
 const userAuth = require('@/utilities/userAuth');
-const Session = require('@/services/consumer/sesion/model');
+const Session = require('@/services/consumer/session/model');
 
 const controller = async (req, res) => {
   try {
