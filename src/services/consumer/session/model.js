@@ -5,15 +5,16 @@ const schema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
-  muted: {
-    type: Boolean,
-    default: false,
+  socket_id: {
+    type: String,
+    required: true,
+    index: true,
   },
-  processed: {
-    type: Boolean,
+  app_ids: {
+    type: Object,
   },
 }, {
   timestamps: true
 });
 
-module.exports = mongoose.model('Speaker', schema);
+module.exports = mongoose.model('Session', schema);
