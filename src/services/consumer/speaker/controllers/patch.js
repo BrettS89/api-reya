@@ -10,11 +10,11 @@ const controller = async (req, res) => {
     const speaker = await Speaker.findOne({ user_id: _id })
     if (!speaker) throwError(404, 'no speaker found');
 
-    speaker.muted = true;
-
     Object.keys(req.body).forEach(k => {
       speaker[k] = req.body[k]
     });
+
+    console.log(speaker);
 
     const updatedSpeaker = await speaker.save();
 
