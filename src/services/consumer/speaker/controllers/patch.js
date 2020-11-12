@@ -9,12 +9,10 @@ const controller = async (req, res) => {
     const { _id } = userAuth(req.header('authorization'));
     const speaker = await Speaker.findOne({ user_id: _id })
     if (!speaker) throwError(404, 'no speaker found');
-    console.log(req.body);
+
     Object.keys(req.body).forEach(k => {
       speaker[k] = req.body[k]
     });
-
-    console.log(speaker);
 
     const updatedSpeaker = await speaker.save();
 
